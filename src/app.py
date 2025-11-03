@@ -4,7 +4,7 @@ app = FastAPI()
 
 @app.get("/status")
 def get_status():
-    return {"status": "ok", "uptime": 99.9}
+    return {"status": "error", "uptime": 99.9}
 
 if __name__ == "__main__":
     import uvicorn
