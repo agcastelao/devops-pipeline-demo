@@ -1,39 +1,39 @@
 name: CI/CD Pipeline - DevOps Demo
 
-# 1️⃣ Disparo automático
+# Disparo automático
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# 2️⃣ Definição do ambiente
+# Definição do ambiente
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      # 3️⃣ Clonar o repositório
+      # Clonar o repositório
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 4️⃣ Configurar o Python (instalação automatizada)
+      # Configurar o Python (instalação automatizada)
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # 5️⃣ Instalar dependências
+      # Instalar dependências
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 6️⃣ Executar os testes automatizados (CI)
+      # Executar os testes automatizados (CI)
       - name: Run tests
         run: pytest -q
 
-      # 7️⃣ Etapa de "Deploy simulado"
+      # Etapa de "Deploy simulado"
       - name: Simulate Deployment
         run: |
           echo "🚀 Deploy iniciado..."
@@ -41,7 +41,7 @@ jobs:
           mkdir -p build
           echo "Deploy concluído com sucesso!" > build/deploy_log.txt
 
-      # 8️⃣ Upload do artefato (representa entrega automatizada)
+      # Upload do artefato (representa entrega automatizada)
       - name: Upload deployment artifact
         uses: actions/upload-artifact@v4
         with:
